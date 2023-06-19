@@ -70,5 +70,7 @@ def exposure_time(regions, itineraries, surface_area):
     
     return percentage_mean_exposure_time
 
-mean_exposure_time=exposure_time(regions, itineraries, surface_area)
+#%%
+area=surface_area(regions)
+mean_exposure_time=exposure_time(regions, itineraries, area)
 
