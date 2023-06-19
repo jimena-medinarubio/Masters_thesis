@@ -3,8 +3,8 @@ This private repository contains the models outputs and codes used for the analy
 The following information can be found in this repository:
 
 **DELFT3D hydrodynamic model of the ocean currents around the island of Curaçao**
-  -Code for extraction of wind datasets from ECMWF
-  -Attribute files necessary to run the model (grid, bathymetry, open boundaries, boundary conditions, wind forcing, MDF file). See https://oss.deltares.nl/web/delft3d/manuals for more information about each of them.
+  *Code for extraction of wind datasets from ECMWF
+  *Attribute files necessary to run the model (grid, bathymetry, open boundaries, boundary conditions, wind forcing, MDF file). See https://oss.deltares.nl/web/delft3d/manuals for more information about each of them.
   -Model output in netCDF format. Time series of velocity components and surface elevation at each timestep.
   -Animation of the velocity field at each timestep (snapshots included in thesis).
   
