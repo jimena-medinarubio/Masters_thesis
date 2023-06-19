@@ -131,3 +131,6 @@ for i in range(total_trajs):
     print(f"Processed {i+1}/{total_trajs} trajectories")
     print('The trajectories\' itineraries are ready')
 
+#%%
+
+Y_trajs.to_netcdf('itineraries.nc')
