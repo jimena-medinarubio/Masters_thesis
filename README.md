@@ -17,13 +17,14 @@ The following information can be found in this repository:
 Code to calculate the KDE from Lagrangian trajectories
   
 **Supervised Machine Learning method to classify trajectories (KNN)**
-Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
+  -Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
+  Using the itineraries of the particles, the following metrics are calculated:
   
-**Exposure time**
-Code to calculate the exposure time of particles in each region of the partitioned domain using their itineraries.
+  **a) Exposure time**
+  -Code to calculate the exposure time of particles in each region of the partitioned domain using their itineraries.
 
-**Lagrangian Flow Network**
-  - Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
-  - Code to calculate the *betweenness centrality* of each region of the partitioned domain
-  - *Infomap* algorithm used to find distinct commnities within the network.
+  **b)Lagrangian Flow Network**
+    - Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
+    - Code to calculate the *betweenness centrality* of each region of the partitioned domain
+    - *Infomap* algorithm used to find distinct commnities within the network.
   
