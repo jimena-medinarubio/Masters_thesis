@@ -9,8 +9,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.neighbors import KNeighborsClassifier
 #%%
+#upload domain partition
 regions=xr.open_dataset('regions.nc')
+#upload Parcels output
 parcels=xr.open_dataset('trajectories.nc')
+
 print(regions.keys())
 print(parcels.keys())
 
