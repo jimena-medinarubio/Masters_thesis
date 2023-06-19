@@ -3,27 +3,27 @@ This private repository contains the models outputs and codes used for the analy
 The following information can be found in this repository:
 
 **DELFT3D hydrodynamic model of the ocean currents around the island of Curaçao**
-  *Code for extraction of wind datasets from ECMWF
-  *Attribute files necessary to run the model (grid, bathymetry, open boundaries, boundary conditions, wind forcing, MDF file). See https://oss.deltares.nl/web/delft3d/manuals for more information about each of them.
-  -Model output in netCDF format. Time series of velocity components and surface elevation at each timestep.
-  -Animation of the velocity field at each timestep (snapshots included in thesis).
+  - Code for extraction of wind datasets from ECMWF
+  - Attribute files necessary to run the model (grid, bathymetry, open boundaries, boundary conditions, wind forcing, MDF file). See https://oss.deltares.nl/web/delft3d/manuals for more information about each of them.
+  - Model output in netCDF format. Time series of velocity components and surface elevation at each timestep.
+  - Animation of the velocity field at each timestep (snapshots included in thesis).
   
 **Parcels simulation of Lagrangian trajectories**
-  -Code needed to run the model with the velocity field as input.
-  -Model output of the Lagrangian trajectories at each hour.
-  -Animation showing the particles advection over time.
+  - Code needed to run the model with the velocity field as input.
+  - Model output of the Lagrangian trajectories at each hour.
+  - Animation showing the particles advection over time.
   
 **Kernel Density Estimation (KDE) analysis**
 Code to calculate the KDE from Lagrangian trajectories
   
-**Supervised Machine Learning method to classify trajectories**
+**Supervised Machine Learning method to classify trajectories (KNN)**
 Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
   
 **Exposure time**
 Code to calculate the exposure time of particles in each region of the partitioned domain using their itineraries.
 
 **Lagrangian Flow Network**
-  -Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
-  -Code to calculate the *betweenness centrality* of each region of the partitioned domain
-  -Infomap algorithm used to find distinct commnities within the network.
+  - Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
+  - Code to calculate the *betweenness centrality* of each region of the partitioned domain
+  - *Infomap* algorithm used to find distinct commnities within the network.
   
