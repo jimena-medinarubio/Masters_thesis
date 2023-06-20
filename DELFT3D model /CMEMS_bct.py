@@ -2,6 +2,8 @@
 #author: JIMENA MEDINA RUBIO (jimena.medinarubio@gmail.com)
 #Last updated: 05/06/2022
 
+WRITNG TIME SERIES BOUNDARY CONDITIONS IN DELFT3D FORMAT FROM CMEMS DATA
+
 #%%
 
 import numpy as np
@@ -12,13 +14,13 @@ from scipy.interpolate import griddata
 
 
 #read velocity field from global hydrodynamic model (netCDF format)
-path='/Users/lienzo/Desktop/Thesis/Runs/Definitive/'
+path='/insert/path/here/'
 file='Venezuela-bct.nc' 
 ds=xr.open_dataset(path+file)
 
 print(ds.keys)
 
-#2DH bct
+#2DH time series velocities
 u=ds.utotal.mean('depth')
 v=ds.vtotal.mean('depth')
 
@@ -90,7 +92,7 @@ vE=dsf.V.sel(lon=dsf.lon[-1]).T #east
 BOUNDARY IS SPECIFIED"""
 
 
-file = '/Users/lienzo/Desktop/Thesis/Runs/Definitive/outer.bnd'
+file = 'insert/path/here/outer.bnd'
 # Define the data types for each column
 dtype = [('boundary', 'U10'), ('col1', 'U1'), ('col2', 'U1'), ('end1', int),
          ('start2', int), ('end2', int), ('value', int), ('type', 'U10')]
@@ -116,7 +118,7 @@ lon1, lat1, lon2, lat2 = data['end1'], data['start2'], data['end2'], data['value
 #%%
 
 #specify output file directory and name
-dir='/Users/lienzo/Downloads/'
+dir='insert/path/here/'
 outfile_name = dir+'Venezuela-def.bct'
 outfile = open(outfile_name, 'w')
 
