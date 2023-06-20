@@ -10,14 +10,18 @@ The following information can be found in this repository:
   
 **Parcels simulation of Lagrangian trajectories**
   - Code needed to run the model with the velocity field as input.
+  - Model output of the Lagrangian trajectories compressed from original size (3.5GB).
   - Animation showing the particles advection over time.
-  - *Model output of the Lagrangian trajectories is too heavy (3.5GB)*.
   
 **Kernel Density Estimation (KDE) analysis**
-Code to calculate the KDE from Lagrangian trajectories
+  - Code to calculate the KDE from Lagrangian trajectories
+
+**Residence time**
+  - Code to calculate the residence time of Lagrangian trajectories inside a domain.
   
 **Supervised Machine Learning method to classify trajectories (KNN)**
   - Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
+  
   Using the itineraries of the particles, the following metrics are calculated:
   
   **a) Exposure time**
