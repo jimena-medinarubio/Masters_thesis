@@ -15,6 +15,9 @@ The following information can be found in this repository:
   
 **Kernel Density Estimation (KDE) analysis**
 Code to calculate the KDE from Lagrangian trajectories
+
+**Residence time**
+Code to calculate the residence time of Lagrangian trajectories inside a domain.
   
 **Supervised Machine Learning method to classify trajectories (KNN)**
   - Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
