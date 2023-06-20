@@ -13,11 +13,9 @@ The following information can be found in this repository:
   - Model output of the Lagrangian trajectories compressed from original size (3.5GB).
   - Animation showing the particles advection over time.
   
-**Kernel Density Estimation (KDE) analysis**
-  - Code to calculate the KDE from Lagrangian trajectories
-
-**Residence time**
-  - Code to calculate the residence time of Lagrangian trajectories inside a domain.
+**General diagnostics on Lagrangian trajectories**
+  - Kernel Density Estimation (KDE) analysis:code to calculate the KDE from Lagrangian trajectories
+  - Residence time: code to calculate the residence time of Lagrangian trajectories inside a domain.
   
 **Supervised Machine Learning method to classify trajectories (KNN)**
   - Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
