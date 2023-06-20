@@ -14,13 +14,14 @@ The following information can be found in this repository:
   - Animation showing the particles advection over time.
   
 **Kernel Density Estimation (KDE) analysis**
-Code to calculate the KDE from Lagrangian trajectories
+  - Code to calculate the KDE from Lagrangian trajectories
 
 **Residence time**
-Code to calculate the residence time of Lagrangian trajectories inside a domain.
+  - Code to calculate the residence time of Lagrangian trajectories inside a domain.
   
 **Supervised Machine Learning method to classify trajectories (KNN)**
   - Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
+  
   Using the itineraries of the particles, the following metrics are calculated:
   
   **a) Exposure time**
