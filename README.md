@@ -24,7 +24,7 @@ Code to calculate the KDE from Lagrangian trajectories
   - Code to calculate the exposure time of particles in each region of the partitioned domain using their itineraries.
 
   **b)Lagrangian Flow Network**
-    - Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
-    - Code to calculate the *betweenness centrality* of each region of the partitioned domain
-    - *Infomap* algorithm used to find distinct commnities within the network.
+  - Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
+  - Code to calculate the *betweenness centrality* of each region of the partitioned domain
+  - *Infomap* algorithm used to find distinct commnities within the network.
   
