@@ -146,7 +146,7 @@ land_kernel=pset.Kernel(delete_land)
 
 #%%
 path='writhe/path/here'
-output_filename = "trajectory.nc"
+output_filename = "trajectory_original.nc"
 output_file = pset.ParticleFile(name=path+output_filename,  outputdt=timedelta(hours=1))
 kernels = AdvectionRK4 + sample_kernel+ land_kernel
 
@@ -158,3 +158,59 @@ pset.execute(kernels,                 # kernel (which defines how particles move
 
 output_file.export()
 
+#%%
+#manipulation of data to relocate longitude and latitude values according to their releasing time
+
+ds=xr.open_dataset(output_filename)
+
+lons=np.zeros_like(ds.lon)
+lats=np.zeros_like(ds.lat)
+
+#target datetime
+target_datetime = initial_time
+
+#calculate the time difference in hours
+diff = (ds.time[:, 0].values.astype('datetime64[s]') - np.datetime64(target_datetime)).astype('timedelta64[s]').astype(int) / 3600
+
+for i, (I, J, times) in enumerate(zip(ds.lon, ds.lat, ds.time)):
+    I_values = I.values
+    J_values = J.values
+    times_values = times.values
+
+    #remove trailing zeros from the fractional seconds part and handle NaT values
+    datetime_str = np.where(times_values != np.datetime64('NaT'), np.char.rstrip(np.char.rstrip(times_values.astype(str), '0'), '.'), 'NaT')
+    datetime_obj = np.array([datetime.strptime(dt, '%Y-%m-%dT%H:%M:%S') if dt != 'NaT' else np.datetime64('NaT') for dt in datetime_str])
+    
+    hours_diff = (datetime_obj.astype('datetime64[s]') - np.datetime64(target_datetime, 's')).astype('timedelta64[s]').astype(int) / 3600
+    
+    mask = np.isclose(hours_diff, -2.56204779e+15, atol=10**-6)
+    hours_diff = np.where(mask, np.nan, hours_diff)
+    
+    valid_indices = ~np.isnan(times_values) & (datetime_str != 'NaT')
+
+    g = []
+    for t in hours_diff:
+        if not np.isnan(t):
+            g.append((t-diff[i]).astype(int))
+
+    lons[i, hours_diff[valid_indices].astype(int)] = I_values[g]
+    lats[i, hours_diff[valid_indices].astype(int)] = J_values[g]
+
+print('done')   
+
+lats_nan=[[] for i in range(len(ds.traj))]
+lons_nan=[[] for i in range(len(ds.traj))]
+for i in range(len(ds.traj)):
+    lats_nan[i]=np.where(lats[i]==0, np.nan, lats[i])
+    lons_nan[i]=np.where(lons[i]==0, np.nan, lons[i])
+
+
+parcels=xr.Dataset(
+{ 'lon': (['traj', 'obs'], lons_nan), 
+ 'lat': (['traj', 'obs'], lats_nan), 
+ 'z': (['traj', 'obs'], ds.z.values),  'time': (['traj', 'obs'], ds.time.values),
+  'trajectory': (['traj', 'obs'], ds.trajectory.values), 'bathymetry': (['traj', 'obs'], ds.bathymetry.values)},
+  coords={ 'traj': ds.traj.values, 'obs': ds.obs.values} )
+
+path='/write/path/here'
+parcels.to_netcdf(path+'trajectories.nc')
