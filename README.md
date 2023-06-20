@@ -6,12 +6,12 @@ The following information can be found in this repository:
   - Code for extraction of wind datasets from ECMWF
   - Attribute files necessary to run the model (grid, bathymetry, open boundaries, boundary conditions, wind forcing, MDF file). See https://oss.deltares.nl/web/delft3d/manuals for more information about each of them.
   - Animation of the velocity field at each timestep (snapshots included in thesis).
-    *Model output in netCDF file too heavy (13GB). Time series of velocity components and surface elevation at each timestep.*
+  - *Model output in netCDF file too heavy (13GB). Time series of velocity components and surface elevation at each timestep.*
   
 **Parcels simulation of Lagrangian trajectories**
   - Code needed to run the model with the velocity field as input.
   - Animation showing the particles advection over time.
-    *Model output of the Lagrangian trajectories is too heavy (3.5GB)*.
+  - *Model output of the Lagrangian trajectories is too heavy (3.5GB)*.
   
 **Kernel Density Estimation (KDE) analysis**
 Code to calculate the KDE from Lagrangian trajectories
