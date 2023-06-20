@@ -5,23 +5,23 @@ The following information can be found in this repository:
 **DELFT3D hydrodynamic model of the ocean currents around the island of Curaçao**
   - Code for extraction of wind datasets from ECMWF
   - Attribute files necessary to run the model (grid, bathymetry, open boundaries, boundary conditions, wind forcing, MDF file). See https://oss.deltares.nl/web/delft3d/manuals for more information about each of them.
-  - Model output in netCDF format. Time series of velocity components and surface elevation at each timestep.
   - Animation of the velocity field at each timestep (snapshots included in thesis).
+  *Model output in netCDF file too heavy (13GB). Time series of velocity components and surface elevation at each timestep.*
   
 **Parcels simulation of Lagrangian trajectories**
   - Code needed to run the model with the velocity field as input.
   - Animation showing the particles advection over time.
-  *Model output of the Lagrangian trajectories is too heavy to upload in GitHub.
+  *Model output of the Lagrangian trajectories is too heavy (3.5GB)*.
   
 **Kernel Density Estimation (KDE) analysis**
 Code to calculate the KDE from Lagrangian trajectories
   
 **Supervised Machine Learning method to classify trajectories (KNN)**
-  -Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
+  - Given a domain parition, code to classify trajectories and obtain their itinerary at each timestep.
   Using the itineraries of the particles, the following metrics are calculated:
   
   **a) Exposure time**
-  -Code to calculate the exposure time of particles in each region of the partitioned domain using their itineraries.
+  - Code to calculate the exposure time of particles in each region of the partitioned domain using their itineraries.
 
   **b)Lagrangian Flow Network**
     - Code to compute the transition matrix of the trajectories over the partitioned domain and obtain a graph where nodes represent each   region and the edges, the probability of transport between them.
