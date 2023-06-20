@@ -10,8 +10,8 @@ The following information can be found in this repository:
   
 **Parcels simulation of Lagrangian trajectories**
   - Code needed to run the model with the velocity field as input.
+  - Model output of the Lagrangian trajectories compressed from original size (3.5GB).
   - Animation showing the particles advection over time.
-  - *Model output of the Lagrangian trajectories is too heavy (3.5GB)*.
   
 **Kernel Density Estimation (KDE) analysis**
 Code to calculate the KDE from Lagrangian trajectories
