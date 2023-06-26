@@ -96,7 +96,7 @@ def X_trajectories(regions, parcels):
 
         X_traj=np.column_stack((regions.lon[lon_idx-1], regions.lat[lat_idx-1]))
         
-        #change coordinates in boundary to land coordinates to exclude from analysis
+        #change coordinates in boundary and NAN values (particle outside of domain) to land coordinates to exclude from analysis
         array_coords = np.full_like(X_traj, coords)
         X_traj=np.where(X_traj==array_coords, [-68.9, 12.13], X_traj)
         
