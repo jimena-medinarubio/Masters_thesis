@@ -4,7 +4,7 @@ import xarray as xr
 
 #%%
 regions=xr.open_dataset('regions.nc')
-itineraries=xr.open_dataset('itineraries.nc')
+itineraries = np.load('itineraries.npy')
 
 #%%
 
