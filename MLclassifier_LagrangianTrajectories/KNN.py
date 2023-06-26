@@ -1,8 +1,6 @@
 #%%
 import xarray as xr
 import numpy as np
-import matplotlib.pyplot as plt
-import cmocean
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -10,11 +8,10 @@ from sklearn.pipeline import make_pipeline
 from sklearn.neighbors import KNeighborsClassifier
 #%%
 #upload domain partition
-regions=xr.open_dataset('regions.nc')
+regions=xr.open_dataset('/Users/lienzo/Desktop/Thesis/Github_repository/MLclassifier_LagrangianTrajectories/regions.nc')
 #upload Parcels output
-parcels=xr.open_dataset('trajectories.nc')
+parcels=xr.open_dataset('/Users/lienzo/Desktop/Thesis/Github_repository/LagrangianTrajectories/trajectories.nc')
 
-print(regions.keys())
 print(parcels.keys())
 
 # %%
@@ -116,7 +113,6 @@ Y=regions.label.values.flatten()
 clf=classifier(3, X, Y)
 
 #%%
-
 #extract coordinate from sample data 
 X_trajs=X_trajectories(regions, parcels)
 #%%
@@ -132,5 +128,4 @@ for i in range(total_trajs):
     print('The trajectories\' itineraries are ready')
 
 #%%
-
-Y_trajs.to_netcdf('itineraries.nc')
+np.save('itineraries.npy', Y_trajs)
